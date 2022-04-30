@@ -66,7 +66,7 @@
             <div class="border"></div>
             <p><b>Ticket Code:</b> {{$ticket->code}}</p>
             <p><b>Ticket Holder:</b> {{$ticket->utilisateur->name}}</p>
-            <p><b>Ticket Price:</b>{{$ticket->event->price}} MAD</p>
+            <p><b>Tickegit t Price:</b>{{$ticket->event->price}} MAD</p>
 
         </div>
         <div class="eventImage">
