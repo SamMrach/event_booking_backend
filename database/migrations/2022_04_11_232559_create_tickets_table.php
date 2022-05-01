@@ -17,15 +17,19 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code');
-            $table->integer('utilisateur_id');
-            $table->integer('event_id');
+            $table->integer('utilisateur_id')->unsigned();;
+            $table->integer('event_id')->unsigned();;
             $table->string('path')->nullable();
             $table->string('event_name');
             $table->string('event_description');
             $table->float('price');
+            //$table->foreign('utilisateur_id')->references('id')->on('utilisateurs')->onDelete('cascade');
+            //$table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->timestamps();
+        });
+        Schema::table('tickets', function($table) {
             $table->foreign('utilisateur_id')->references('id')->on('utilisateurs')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
