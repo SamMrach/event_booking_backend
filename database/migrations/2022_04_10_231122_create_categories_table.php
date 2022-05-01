@@ -12,11 +12,12 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
+        Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('category');
+            $table->string('description');
             $table->string('icon');
             $table->timestamps();
         });
