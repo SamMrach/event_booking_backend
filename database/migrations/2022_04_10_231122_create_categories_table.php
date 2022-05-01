@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     { 
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
