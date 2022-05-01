@@ -11,7 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class CommandeController extends Controller
 {
 public function index(){
-    $commandes=ticket::All();
+    $commandes=ticket::paginate(5);
     //dd($commandes->event);
     return view('commandes',['tickets'=>$commandes]);
 }

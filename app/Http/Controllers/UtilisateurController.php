@@ -12,7 +12,7 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $users=Utilisateur::all();
+        $users=Utilisateur::paginate(5);
         return View('utilisateurs',['utilisateurs'=>$users]);
     }
     /**

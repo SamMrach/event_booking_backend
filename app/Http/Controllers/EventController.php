@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\EventController;
 use App\Models\event;
-use App\Models\Category;
+use App\Models\category;
 class EventController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $events=Event::all();
+        $events=Event::paginate(5);
         //dd($events);
         return View('events',['events'=>$events]);
     }
@@ -24,7 +24,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\View
      */
     public function Create(){
-        $categories=Category::all();
+        $categories=category::all();
         return View('AddEvent',['categories'=>$categories]);
     }
     /**
@@ -44,7 +44,7 @@ class EventController extends Controller
     }
     public function Edit($id){
       $event=Event::find($id);
-      $categories=Category::all();
+      $categories=category::all();
       $selectedCategorie=$event->category;
       return View('editEvent',['event'=>$event,'categories'=>$categories,'selectedCategorie'=>$selectedCategorie]);
     }

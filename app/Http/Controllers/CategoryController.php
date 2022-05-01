@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\category;
 class CategoryController extends Controller
 {
      /**
@@ -12,7 +12,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $categories=Category::all();
+        $categories=category::all();
         return View('categories',['categories'=>$categories]);
     }
     public function Add(){
@@ -24,11 +24,11 @@ class CategoryController extends Controller
         $filename=$request->file('icon')->getClientOriginalName();
         $path=$request->file('icon')->storeAs('images',$filename,'public');
         $requestData['icon']='storage/'.$path;
-        Category::create($requestData);
+        category::create($requestData);
         return redirect()->to('/categories');
     }
     public function delete($id){
-        $categorie=Category::find($id);
+        $categorie=category::find($id);
         $categorie->delete();
         return redirect()->to('/categories');
     }

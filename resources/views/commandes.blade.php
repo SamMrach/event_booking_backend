@@ -223,8 +223,7 @@ table.table .avatar {
                         <h2>Gestion Commandes</b></h2>
                     </div>
                     <div class="col-xs-7">
-                        <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Export to
-                                Excel</span></a>
+
                     </div>
                 </div>
             </div>
@@ -257,17 +256,8 @@ table.table .avatar {
                     @endforeach
                 </tbody>
             </table>
-            <div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
+            <div class="d-flex justify-content-center">
+                {!! $tickets->links() !!}
             </div>
         </div>
     </div>
